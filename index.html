@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Murari Portfolio</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #cce7ff, #ffffff);
+  text-align: center;
+}
+
+/* OPEN SCREEN */
+.open-screen {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.drop-box {
+  background: rgba(255,255,255,0.9);
+  padding: 50px;
+  border-radius: 30px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  animation: dropDown 1.4s ease forwards;
+}
+
+@keyframes dropDown {
+  from { transform: translateY(-200px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.open-btn {
+  padding: 16px 45px;
+  font-size: 20px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(45deg, #4aa3df, #2c5aa0);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.open-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* PORTFOLIO */
+#portfolio {
+  display: none;
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+header {
+  background: #4aa3df;
+  color: white;
+  padding: 25px;
+}
+
+section {
+  padding: 40px 20px;
+}
+
+.card {
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(10px);
+  width: 85%;
+  max-width: 650px;
+  margin: 25px auto;
+  padding: 25px;
+  border-radius: 25px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+/* Character */
+.character {
+  width: 150px;
+  height: 150px;
+  background: #5dade2;
+  border-radius: 50%;
+  margin: 30px auto;
+  position: relative;
+  animation: float 3s infinite ease-in-out;
+}
+
+.eye {
+  width: 14px;
+  height: 14px;
+  background: black;
+  border-radius: 50%;
+  position: absolute;
+  top: 50px;
+}
+
+.eye.left { left: 45px; }
+.eye.right { right: 45px; }
+
+.mouth {
+  width: 40px;
+  height: 20px;
+  border-bottom: 4px solid black;
+  border-radius: 0 0 40px 40px;
+  position: absolute;
+  bottom: 40px;
+  left: 55px;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+/* Skills */
+.skills span {
+  display: inline-block;
+  background: #4aa3df;
+  color: white;
+  padding: 8px 15px;
+  margin: 6px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+footer {
+  background: #4aa3df;
+  color: white;
+  padding: 15px;
+}
+
+/* Typing animation */
+.typing {
+  border-right: 3px solid #000;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 4s steps(40) infinite alternate;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- OPEN -->
+<div class="open-screen" id="openScreen">
+  <div class="drop-box">
+    <h1>About Developer</h1>
+    <button class="open-btn" onclick="openPortfolio()">Know About Me</button>
+  </div>
+</div>
+
+<!-- PORTFOLIO -->
+<div id="portfolio">
+  <header>
+    <h1>👨‍💻 Murari Kumar Portfolio</h1>
+  </header>
+
+  <div class="character">
+    <div class="eye left"></div>
+    <div class="eye right"></div>
+    <div class="mouth"></div>
+  </div>
+
+  <section>
+    <div class="card">
+      <h2>About Me</h2>
+      <p class="typing">I am a passionate engineer who loves coding and learning new technologies.</p>
+    </div>
+
+    <div class="card">
+      <h2>Skills</h2>
+      <div class="skills">
+        <span>C</span>
+        <span>C++</span>
+        <span>Python</span>
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>SQL</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Projects</h2>
+      <p>✔ Matrix Computation System<br>
+         ✔ Student Database System<br>
+         ✔ Portfolio Website</p>
+    </div>
+
+    <div class="card">
+      <h2>Contact</h2>
+      <p>📧 murarikumarstm102@gmail.com</p>
+      <p>9155129692</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Murari Kumar</p>
+  </footer>
+</div>
+
+<script>
+function openPortfolio() {
+  document.getElementById("openScreen").style.display = "none";
+  document.getElementById("portfolio").style.display = "block";
+}
+</script>
+
+</body>
+</html>
